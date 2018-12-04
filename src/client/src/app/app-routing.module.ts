@@ -5,6 +5,8 @@ import { CanActivate, RouterModule, Routes } from '@angular/router';
 /* START MY VIEWS IMPORT */
 // Do not edit this comment content, it will be overwritten in next Skaffolder generation
 import { HomeComponent} from './pages/home/home.component';
+import { UserComponent} from './pages/user/user.component';
+import { UserEditComponent} from './pages/user-edit/user-edit.component';
 import { UserListComponent} from './pages/user-list/user-list.component';
 
 /* END MY VIEWS IMPORT */
@@ -24,8 +26,8 @@ const routes: Routes = [
 
     /* START MY VIEWS */
 
-    { path: 'users',  loadChildren: './pages/user-list/user-list.module#UserListModule' , canActivate: [AuthGuard] },
-    { path: 'users',  loadChildren: './pages/user-list/user-list.module#UserListModule' , canActivate: [AuthGuard] },
+    { path: 'user',  loadChildren: './pages/user/user.module#UserModule'  },
+    { path: 'users/:id',  loadChildren: './pages/user-edit/user-edit.module#UserEditModule'  },
     { path: 'users/list',  loadChildren: './pages/user-list/user-list.module#UserListModule'  },
 
  /* END MY VIEWS */

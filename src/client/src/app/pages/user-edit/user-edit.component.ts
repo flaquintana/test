@@ -12,9 +12,16 @@ import { User } from '../../domain/test_db/user';
 * UserService.create
 *	@description CRUD ACTION create
 *
+* UserService.delete
+*	@description CRUD ACTION delete
+*	@param ObjectId id Id
+*
 * UserService.get
 *	@description CRUD ACTION get
 *	@param ObjectId id Id 
+*
+* UserService.list
+*	@description CRUD ACTION list
 *
 * UserService.update
 *	@description CRUD ACTION update
