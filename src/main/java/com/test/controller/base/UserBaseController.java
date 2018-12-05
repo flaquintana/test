@@ -12,6 +12,7 @@ import com.test.db.test_db.service.UserService;
 import com.test.db.test_db.entity.User;
 
 //IMPORT RELATIONS
+import com.test.db.test_db.entity.User;
 
 public class UserBaseController {
     
@@ -42,6 +43,14 @@ public class UserBaseController {
 		userService.delete(id);
 	}
 	
+
+    //CRUD - FIND BY Ha
+    @Secured({ "ROLE_PRIVATE_USER" })
+	@RequestMapping(value = "/Users/findByHa/{key}", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<User> findByHa(@PathVariable("key") Long idHa) {
+		List<User> list = userService.findByHa(idHa);
+		return list;
+	}
 	
     //CRUD - GET ONE
     @Secured({ "ROLE_PRIVATE_USER" })

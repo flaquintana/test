@@ -5,9 +5,8 @@ import { CanActivate, RouterModule, Routes } from '@angular/router';
 /* START MY VIEWS IMPORT */
 // Do not edit this comment content, it will be overwritten in next Skaffolder generation
 import { HomeComponent} from './pages/home/home.component';
-import { UserComponent} from './pages/user/user.component';
-import { UserEditComponent} from './pages/user-edit/user-edit.component';
-import { UserListComponent} from './pages/user-list/user-list.component';
+import { RicetteEditComponent} from './pages/ricette-edit/ricette-edit.component';
+import { RicetteListComponent} from './pages/ricette-list/ricette-list.component';
 
 /* END MY VIEWS IMPORT */
 
@@ -26,9 +25,9 @@ const routes: Routes = [
 
     /* START MY VIEWS */
 
-    { path: 'user',  loadChildren: './pages/user/user.module#UserModule'  },
-    { path: 'users/:id',  loadChildren: './pages/user-edit/user-edit.module#UserEditModule'  },
-    { path: 'users/list',  loadChildren: './pages/user-list/user-list.module#UserListModule'  },
+    { path: 'home',  loadChildren: './pages/home/home.module#HomeModule' , canActivate: [AuthGuard] },
+    { path: 'ricettes/:id',  loadChildren: './pages/ricette-edit/ricette-edit.module#RicetteEditModule' , canActivate: [AuthGuard] },
+    { path: 'ricettes',  loadChildren: './pages/ricette-list/ricette-list.module#RicetteListModule' , canActivate: [AuthGuard] },
 
  /* END MY VIEWS */
 

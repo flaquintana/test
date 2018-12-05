@@ -21,6 +21,7 @@ import com.test.db.test_db.entity.User;
 import com.test.db.test_db.service.UserService;
 
 //IMPORT RELATIONS
+import com.test.db.test_db.entity.User;
 
 @Service
 public class UserBaseService {
@@ -65,6 +66,18 @@ public class UserBaseService {
 		jdbcTemplate.update(sql, parameters);
 	}
 
+    	
+    //CRUD - FIND BY Ha
+    	
+	public List<User> findByHa(Long idHa) {
+		
+		String sql = "select * from `User` WHERE `Ha` = :idHa";
+		
+	    SqlParameterSource parameters = new MapSqlParameterSource()
+		.addValue("idHa", idHa);
+	    
+	    return jdbcTemplate.query(sql, parameters, new BeanPropertyRowMapper(User.class));
+	}
     	
     //CRUD - GET ONE
     	
@@ -114,7 +127,8 @@ public class UserBaseService {
     	
     
     
-
+    
+    
 
     
     /*

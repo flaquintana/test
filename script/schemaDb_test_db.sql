@@ -9,6 +9,26 @@ USE `test_db`;
 -- ENTITIES
 
 --
+-- Struttura della tabella `ricette`
+--
+
+CREATE TABLE IF NOT EXISTS `ricette` (
+	`Ingredienti` varchar(40)  NOT NULL,
+	`Nome` varchar(40)  NOT NULL,
+	`Procedimento` varchar(40)  NOT NULL,
+	
+	-- RELAZIONI
+	`Posseduta` int(11)  REFERENCES user(_id),
+
+	`_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT 
+
+);
+
+
+
+
+
+--
 -- Struttura della tabella `user`
 --
 
