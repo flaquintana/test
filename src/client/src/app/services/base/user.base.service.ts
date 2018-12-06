@@ -64,46 +64,9 @@ export class UserBaseService {
     // CRUD METHODS
 
     /**
-    * UserService.create
-    *   @description CRUD ACTION create
-    *
-    */
-    create(item: User): Observable<User> {
-        return this.http
-            .post<User>(this.contextUrl, item)
-            .pipe(map(data => data));
-    }
-
-    /**
-    * UserService.delete
-    *   @description CRUD ACTION delete
-    *   @param ObjectId id Id
-    *
-    */
-    remove(id: string): Observable<void> {
-        return this.http
-            .delete<void>(this.contextUrl + '/' + id)
-            .pipe(map(data => data));
-    }
-
-    /**
-    * UserService.findByHa
-    *   @description CRUD ACTION findByHa
-    *   @param Objectid key Id della risorsa Ha da cercare
-    *
-    */
-    findByHa(id: string): Observable<User[]> {
-        return this.http
-            .get<User[]>(this.contextUrl + '/findByHa/' + id)
-            .pipe(
-                map(response => response)
-            );
-    }
-
-    /**
     * UserService.get
     *   @description CRUD ACTION get
-    *   @param ObjectId id Id 
+    *   @returns User
     *
     */
     get(id: string): Observable<User> {
@@ -113,20 +76,9 @@ export class UserBaseService {
     }
 
     /**
-    * UserService.list
-    *   @description CRUD ACTION list
-    *
-    */
-    list(): Observable<User[]> {
-        return this.http
-            .get<User[]>(this.contextUrl)
-            .pipe(map(data => data));
-    }
-
-    /**
     * UserService.update
     *   @description CRUD ACTION update
-    *   @param ObjectId id Id
+    *   @returns User
     *
     */
     update(item: User): Observable<User> {
@@ -137,20 +89,5 @@ export class UserBaseService {
 
 
     // Custom APIs
-
-
-    /**
-    * UserService.changePassword
-    *   @description Change password of user from admin
-    *   @returns object
-    *
-    */
-    changePassword(...params: any[]): Observable<any> {
-        return this.http
-            .post<any>(this.contextUrl + '/{id}/changePassword', {})
-            .pipe(
-                map(response => response)
-            );
-    }
 
 }

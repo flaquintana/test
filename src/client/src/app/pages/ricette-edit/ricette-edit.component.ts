@@ -18,9 +18,6 @@ import { User } from '../../domain/test_db/user';
 *	@description CRUD ACTION get
 *	@param ObjectId id Id 
 *
-* UserService.list
-*	@description CRUD ACTION list
-*
 * RicetteService.update
 *	@description CRUD ACTION update
 *	@param ObjectId id Id

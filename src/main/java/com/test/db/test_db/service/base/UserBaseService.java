@@ -38,48 +38,7 @@ public class UserBaseService {
 
     //CRUD METHODS
     
-    	
-        //CRUD - CREATE
-    	
-	public User insert(User obj) {
-		Long id = jdbcTemplate.queryForObject("select max(_id) from `user`", new MapSqlParameterSource(), Long.class);
-		obj.set_id(id == null ? 1 : id + 1);
-		String sql = "INSERT INTO `user` (`_id`, `username`, `password`  )	VALUES (:id, :username , :password  )";
-		SqlParameterSource parameters = new MapSqlParameterSource()
-		    .addValue("id", obj.get_id())
-			.addValue("password", obj.getPassword())
-			.addValue("username", obj.getUsername());
-
-		jdbcTemplate.update(sql, parameters);
-		this.updateRoles(obj.get_id(), obj.getRoles());
-		return obj;
-	}
-	
-    	
-    //CRUD - REMOVE
-    
-	public void delete(Long id) {
-		String sql = "DELETE FROM `User` WHERE `_id`=:id";
-		SqlParameterSource parameters = new MapSqlParameterSource()
-			.addValue("id", id);
-		
-		jdbcTemplate.update(sql, parameters);
-	}
-
-    	
-    //CRUD - FIND BY Ha
-    	
-	public List<User> findByHa(Long idHa) {
-		
-		String sql = "select * from `User` WHERE `Ha` = :idHa";
-		
-	    SqlParameterSource parameters = new MapSqlParameterSource()
-		.addValue("idHa", idHa);
-	    
-	    return jdbcTemplate.query(sql, parameters, new BeanPropertyRowMapper(User.class));
-	}
-    	
-    //CRUD - GET ONE
+//CRUD - GET ONE
     	
 	public User get(Long id) {
 	    
@@ -91,26 +50,6 @@ public class UserBaseService {
 	    return (User) jdbcTemplate.queryForObject(sql, parameters, new BeanPropertyRowMapper(User.class));
 	}
 
-
-    	
-        	
-    //CRUD - GET LIST
-    	
-	public List<User> getList() {
-	    
-		String sql = "select * from `User`";
-		
-	    SqlParameterSource parameters = new MapSqlParameterSource();
-	    List<User> list = jdbcTemplate.query(sql, parameters, new BeanPropertyRowMapper(User.class));
-	    
-	    for (User user : list) {
-			user = this.addRoles(user);
-		}
-	    
-	    return list;
-	    
-	    
-	}
 
     	
     //CRUD - EDIT
@@ -137,22 +76,6 @@ public class UserBaseService {
      *	These services will be overwritten and implemented in UserService.java
      */
     
-    
-    /*
-    
-    YOU CAN COPY AND MODIFY THIS METHOD IN UserService.java
-    
-    Name: changePassword
-    Description: Change password of user from admin
-    Params: 
-    */
-	public Object changePassword () {
-		
-        return null;
-        
-	}
-	
-	
     	public User login(String username, String password) {
 		String sql = "select * from `user` where `username` = :username AND  `password` = :password";
 		
