@@ -6,7 +6,7 @@
 **** END PROPERTIES SKAFFOLDER ****
 <!-- TITLE -->
 <div class="mb-40 mt-40">
-    <h1>Gestione utenti</h1>
+    <h1>Gestisci utenti</h1>
 </div>
 
 <!-- SEARCH FORM -->
@@ -20,7 +20,7 @@
                 <div class="col-md-10">
                     <div class="form-group">
                         <input type="text" class="form-control" id="username" [(ngModel)]="search.username" name="username" #username="ngModel">
-                        <label for="username">Username</label>
+                        <label for="title">Username</label>
                     </div>
                     {{#each db._resources}}
                     {{#equal name 'User'}}

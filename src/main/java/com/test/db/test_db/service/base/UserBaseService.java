@@ -104,11 +104,9 @@ public class UserBaseService {
     	
 	public User update(User obj, Long id) {
 
-		String sql = "UPDATE `User` SET `username`=:username, `password`=:password WHERE `_id`=:id";
+		String sql = "UPDATE `User` SET  WHERE `_id`=:id";
 		SqlParameterSource parameters = new MapSqlParameterSource()
-		    .addValue("id", obj.get_id())
-		    .addValue("password", obj.getPassword())
-		    .addValue("username", obj.getUsername());
+		    .addValue("id", obj.get_id());
 		jdbcTemplate.update(sql, parameters);
 	    return obj;
 	}

@@ -31,7 +31,7 @@ const routes: Routes = [
     { path: 'ricettes/:id',  loadChildren: './pages/ricette-edit/ricette-edit.module#RicetteEditModule' , canActivate: [AuthGuard] },
     { path: 'ricettes',  loadChildren: './pages/ricette-list/ricette-list.module#RicetteListModule' , canActivate: [AuthGuard] },
     { path: 'users/:id',  loadChildren: './pages/user-edit/user-edit.module#UserEditModule' , canActivate: [AuthGuard] },
-    { path: 'users',  loadChildren: './pages/user-list/user-list.module#UserListModule' , canActivate: [AuthGuard] },
+    { path: 'users',  loadChildren: './pages/user-list/user-list.module#UserListModule' , canActivate: [AuthGuard], data:["ADMIN"] },
 
  /* END MY VIEWS */
 
