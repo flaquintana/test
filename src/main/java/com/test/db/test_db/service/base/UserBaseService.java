@@ -38,7 +38,8 @@ public class UserBaseService {
 
     //CRUD METHODS
     
-    //CRUD - CREATE
+    	
+        //CRUD - CREATE
     	
 	public User insert(User obj) {
 		Long id = jdbcTemplate.queryForObject("select max(_id) from `user`", new MapSqlParameterSource(), Long.class);
@@ -124,6 +125,23 @@ public class UserBaseService {
      *	These services will be overwritten and implemented in UserService.java
      */
     
+    
+    /*
+    
+    YOU CAN COPY AND MODIFY THIS METHOD IN UserService.java
+    
+    Name: UserApi
+    Description: 
+    Params: 
+    	String param1 - vhggfdgd
+    */
+	public Object UserApi () {
+		
+        return null;
+        
+	}
+	
+	
     	public User login(String username, String password) {
 		String sql = "select * from `user` where `username` = :username AND  `password` = :password";
 		

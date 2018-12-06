@@ -11,6 +11,10 @@ import { UserBaseService } from './base/user.base.service';
 /**
  * Custom APIs
  *
+ * Service.UserApi
+ *	@param String param1 vhggfdgd
+ *	@returns String
+ *
  */
 // end documentation
 

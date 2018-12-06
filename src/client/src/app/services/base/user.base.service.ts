@@ -124,4 +124,19 @@ export class UserBaseService {
 
     // Custom APIs
 
+
+    /**
+    * UserService.UserApi
+    *   @param String param1 vhggfdgd
+    *   @returns String
+    *
+    */
+    UserApi(...params: any[]): Observable<any> {
+        return this.http
+            .get<any>(this.contextUrl + '/UsersApi', {})
+            .pipe(
+                map(response => response)
+            );
+    }
+
 }

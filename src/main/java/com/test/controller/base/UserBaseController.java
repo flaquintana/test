@@ -85,5 +85,19 @@ public class UserBaseController {
  */
 
 
+    /*
+    Name: UserApi
+    Description: 
+    Params: 
+    	String param1 - vhggfdgd
+    
+    
+    @RequestMapping(value = "/Users/UsersApi", method = RequestMethod.GET, headers = "Accept=application/json")
+    public Object UserApi() {
+		return new HashMap<String, String>();
+    }
+    */
+    		
+
 	
 }

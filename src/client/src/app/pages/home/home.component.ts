@@ -5,7 +5,12 @@ import { Location } from '@angular/common';
 // Import Services
 
 // START - USED SERVICES
-
+/**
+* UserService.UserApi
+*	@param String param1 vhggfdgd
+*	@returns String
+*
+*/
 // END - USED SERVICES
 
 /**
