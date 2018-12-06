@@ -38,7 +38,35 @@ public class UserBaseService {
 
     //CRUD METHODS
     
-//CRUD - GET ONE
+    //CRUD - CREATE
+    	
+	public User insert(User obj) {
+		Long id = jdbcTemplate.queryForObject("select max(_id) from `user`", new MapSqlParameterSource(), Long.class);
+		obj.set_id(id == null ? 1 : id + 1);
+		String sql = "INSERT INTO `user` (`_id`, `username`, `password`,  )	VALUES (:id, :username , :password,  )";
+		SqlParameterSource parameters = new MapSqlParameterSource()
+		    .addValue("id", obj.get_id())
+			.addValue("password", obj.getPassword())
+			.addValue("username", obj.getUsername());
+
+		jdbcTemplate.update(sql, parameters);
+		this.updateRoles(obj.get_id(), obj.getRoles());
+		return obj;
+	}
+	
+    	
+    //CRUD - REMOVE
+    
+	public void delete(Long id) {
+		String sql = "DELETE FROM `User` WHERE `_id`=:id";
+		SqlParameterSource parameters = new MapSqlParameterSource()
+			.addValue("id", id);
+		
+		jdbcTemplate.update(sql, parameters);
+	}
+
+    	
+    //CRUD - GET ONE
     	
 	public User get(Long id) {
 	    
@@ -50,6 +78,26 @@ public class UserBaseService {
 	    return (User) jdbcTemplate.queryForObject(sql, parameters, new BeanPropertyRowMapper(User.class));
 	}
 
+
+    	
+        	
+    //CRUD - GET LIST
+    	
+	public List<User> getList() {
+	    
+		String sql = "select * from `User`";
+		
+	    SqlParameterSource parameters = new MapSqlParameterSource();
+	    List<User> list = jdbcTemplate.query(sql, parameters, new BeanPropertyRowMapper(User.class));
+	    
+	    for (User user : list) {
+			user = this.addRoles(user);
+		}
+	    
+	    return list;
+	    
+	    
+	}
 
     	
     //CRUD - EDIT

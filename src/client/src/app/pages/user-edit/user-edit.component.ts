@@ -12,20 +12,17 @@ import { User } from '../../domain/test_db/user';
 * UserService.create
 *	@description CRUD ACTION create
 *
-* UserService.delete
-*	@description CRUD ACTION delete
-*	@param ObjectId id Id
+* RicetteService.findByPosseduta
+*	@description CRUD ACTION findByPosseduta
+*	@param Objectid key Id della risorsa Posseduta da cercare
 *
 * UserService.get
 *	@description CRUD ACTION get
-*	@param ObjectId id Id 
-*
-* UserService.list
-*	@description CRUD ACTION list
+*	@returns User
 *
 * UserService.update
 *	@description CRUD ACTION update
-*	@param ObjectId id Id
+*	@returns User
 *
 */
 // END - USED SERVICES

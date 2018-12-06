@@ -23,6 +23,26 @@ public class UserBaseController {
 
 //CRUD METHODS
 
+
+    //CRUD - CREATE
+    @Secured({ "ROLE_PRIVATE_USER" })
+		@RequestMapping(value = "/Users", method = RequestMethod.POST, headers = "Accept=application/json")
+	public User insert(@RequestBody User obj) {
+		User result = userService.insert(obj);
+
+	    
+		
+		return result;
+	}
+
+	
+    //CRUD - REMOVE
+    @Secured({ "ROLE_PRIVATE_USER" })
+	@RequestMapping(value = "/Users/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
+	public void delete(@PathVariable("id") Long id) {
+		userService.delete(id);
+	}
+	
 	
     //CRUD - GET ONE
     @Secured({ "ROLE_PRIVATE_USER" })
@@ -34,6 +54,15 @@ public class UserBaseController {
 		
 		return obj;
 	}
+	
+	
+    //CRUD - GET LIST
+    @Secured({ "ROLE_PRIVATE_USER" })
+	@RequestMapping(value = "/Users", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<User> getList() {
+		return userService.getList();
+	}
+	
 	
 
     //CRUD - EDIT

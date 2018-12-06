@@ -64,6 +64,29 @@ export class UserBaseService {
     // CRUD METHODS
 
     /**
+    * UserService.create
+    *   @description CRUD ACTION create
+    *
+    */
+    create(item: User): Observable<User> {
+        return this.http
+            .post<User>(this.contextUrl, item)
+            .pipe(map(data => data));
+    }
+
+    /**
+    * UserService.delete
+    *   @description CRUD ACTION delete
+    *   @param ObjectId id Id
+    *
+    */
+    remove(id: string): Observable<void> {
+        return this.http
+            .delete<void>(this.contextUrl + '/' + id)
+            .pipe(map(data => data));
+    }
+
+    /**
     * UserService.get
     *   @description CRUD ACTION get
     *   @returns User
@@ -72,6 +95,17 @@ export class UserBaseService {
     get(id: string): Observable<User> {
         return this.http
             .get<User>(this.contextUrl + '/' + id)
+            .pipe(map(data => data));
+    }
+
+    /**
+    * UserService.list
+    *   @description CRUD ACTION list
+    *
+    */
+    list(): Observable<User[]> {
+        return this.http
+            .get<User[]>(this.contextUrl)
             .pipe(map(data => data));
     }
 

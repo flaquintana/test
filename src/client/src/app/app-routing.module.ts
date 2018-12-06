@@ -7,6 +7,8 @@ import { CanActivate, RouterModule, Routes } from '@angular/router';
 import { HomeComponent} from './pages/home/home.component';
 import { RicetteEditComponent} from './pages/ricette-edit/ricette-edit.component';
 import { RicetteListComponent} from './pages/ricette-list/ricette-list.component';
+import { UserEditComponent} from './pages/user-edit/user-edit.component';
+import { UserListComponent} from './pages/user-list/user-list.component';
 
 /* END MY VIEWS IMPORT */
 
@@ -28,6 +30,8 @@ const routes: Routes = [
     { path: 'home',  loadChildren: './pages/home/home.module#HomeModule' , canActivate: [AuthGuard] },
     { path: 'ricettes/:id',  loadChildren: './pages/ricette-edit/ricette-edit.module#RicetteEditModule' , canActivate: [AuthGuard] },
     { path: 'ricettes',  loadChildren: './pages/ricette-list/ricette-list.module#RicetteListModule' , canActivate: [AuthGuard] },
+    { path: 'users/:id',  loadChildren: './pages/user-edit/user-edit.module#UserEditModule' , canActivate: [AuthGuard] },
+    { path: 'users',  loadChildren: './pages/user-list/user-list.module#UserListModule' , canActivate: [AuthGuard] },
 
  /* END MY VIEWS */
 
