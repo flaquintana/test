@@ -44,7 +44,7 @@ public class UserBaseService {
 	public User insert(User obj) {
 		Long id = jdbcTemplate.queryForObject("select max(_id) from `user`", new MapSqlParameterSource(), Long.class);
 		obj.set_id(id == null ? 1 : id + 1);
-		String sql = "INSERT INTO `user` (`_id`, `username`, `password`,  )	VALUES (:id, :username , :password,  )";
+		String sql = "INSERT INTO `user` (`_id`, `username`, `password`  )	VALUES (:id, :username , :password  )";
 		SqlParameterSource parameters = new MapSqlParameterSource()
 		    .addValue("id", obj.get_id())
 			.addValue("password", obj.getPassword())

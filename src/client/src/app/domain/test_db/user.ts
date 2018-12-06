@@ -10,6 +10,7 @@ export class User extends UserBase {
     // Functions for User
 
     public token: string;
+	public roles: string[];
 
     constructor(
         _id?: string,
